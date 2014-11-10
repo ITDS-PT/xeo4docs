@@ -1,6 +1,6 @@
-# Upgrading from XEO v3 to v4
+# Upgrading from XEO v3.2 to v3.3
 
-There are some important concepts that have changed from version 3.0 to 4.0 and full backward-compatability is not possible. This document **is not to explain how to convert a project in XEO V3 to XEO V4**, but instead to show you what changes in the way you do things.
+There are some important concepts that have changed from version 3.2 to 3.3 and full backward-compatability is not possible. This document **is not to explain how to convert a project in XEO V3.2 to XEO V3.3**, but instead to show you what changes in the way you do things.
 
 ## Viewer definition
 XEO V3 Viewer definitions are mostly compatible with V4, with the following exceptions
