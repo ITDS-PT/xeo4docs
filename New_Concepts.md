@@ -1,8 +1,8 @@
-# Concepts in XEO version 4
+# Concepts in XEO version 3.3
 
-This page introduces the new concepts creating in version 4.0 of XEO, and their purpose.
+This page introduces the new concepts creating in version 3.3 of XEO, and their purpose.
 
-The main goal behind version 4.0 was to create a new visual interface to make applications visualling more appealing but also to solve some issues with the previous version, such as:
+The main goal behind version 3.3 was to create a new visual interface to make applications visualling more appealing but also to solve some issues with the previous version, such as:
 - Navigation between viewers
 - Responding to events in the visual layer
 - Overriding the framework's defaults

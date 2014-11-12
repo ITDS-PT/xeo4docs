@@ -108,7 +108,7 @@ The template/main viewer should have a xvw:form component envolving the entire c
 
 ## Beans
 
-Since version 4 brings so many changes, we decided to create a new set of beans for the various types of situations.
+Since version 3.3 brings so many changes, we decided to create a new set of beans for the various types of situations.
 
 - ApplicationBaseBean (for any viewer)
 - MainBean (for Main Viewers)
