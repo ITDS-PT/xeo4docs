@@ -77,3 +77,55 @@ executeScript( script );
 ```
 
 Check the javadocs for each of the scripts to check which methods you can override
+
+
+## Existing Scripts
+
+All Scripts are in the **netgest.bo.xwc.xeo.controllers.scripts** package, you have the following scripts:
+
+- AddNewScript
+- AddNewToBridgeScript 
+- AddToBridgeScript
+- CardIdLinkScript
+- EditBridgeScript
+- LookupCreateNewScript
+- OpenEditViewerScript
+- OpenListViewerScript
+- SaveScript
+
+Each script corresponds to a standard action performed by the framework. Each Script also requires different parameters to be executed. We'll show a list of examples bellow:
+
+#### Open a List Viewer (with specific BOQL query)
+
+```java
+
+public class MyBean extends ApplicationBaseBean {
+
+	public void openListViewer(){
+		executeScript( OpenListViewerScript.builder("Ebo_Perf").boql("select EBo_Perf where username like 'P%' ").build() );
+	}
+
+}
+
+```
+#### Open an Edit Viewer
+
+```java
+
+	public void openEditViewer(){
+    	long boui = 12345;
+        executeScript( OpenEditViewerScript.builder( boui ).viewer( "path/to/viewer" ).build() );
+    }
+
+```
+#### Add a new instance to a bridge
+
+```java
+
+	public void addToBridge(){
+    	long bridgeOwner = 1234;
+		bridgeHandler bridge = XEO.load( bridgeOwner ).getBridge( "bridgeName" );
+		executeScript( AddToBridgeScript.builder( bridgeOwner , bridge ).boql( "select Ebo_Perf where state = '1' " ).build() );
+    }
+
+```
