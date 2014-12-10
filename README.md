@@ -1,4 +1,4 @@
-Welcome, this page is an index for the XEO V33 documentation.
+Welcome, this page is an index for the XEO v4 documentation.
 
 
 * [New Concepts](New_Concepts.md)
