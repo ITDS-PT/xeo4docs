@@ -6,7 +6,7 @@ The navigation in XEO V3.3 is done through the Story/Scene paradigm as explained
 
 ## Creating a new scene and adding it to the story
 
-Best start with an example (assuming you the context is a bean that extends the ApplicationBaseBean):
+Best start with an example (assuming you the context is a bean that extends the **ApplicationBaseBean**):
 
 ```java
     Scene newScene = new Scene( "path/viewer.xvw" );
@@ -23,6 +23,34 @@ And what if you need to pass some parameters to the viewer/bean?
     renderScene( newScene );
 ```
 
+## Closing the current Scene
+
+If you want to close the current active scene you just have to do the following:
+
+```java
+
+	public class MyBean extends ApplicationBean{
+    	public void myMethod(){
+        	super.close();
+        }
+    }
+
+```
+
+## Replacing the current Scene
+
+If you need to replace a scene with another scene, you can do the following:
+
+```java
+
+	public class MyBean extends ApplicationBean{
+    	public void myMethod(){
+        	Scene newScene = new Scene("Path/to/viewer.xvw");
+        	super.replaceCurrentScene(newScene);
+        }
+    }
+
+```
 
 ## Executing a script
 
@@ -76,8 +104,35 @@ MyOpenViewer script = new MyOpenViewer( SOME_BOUI );
 executeScript( script );
 ```
 
-Check the javadocs for each of the scripts to check which methods you can override
+Check the javadocs for each of the scripts to check which methods you can override.
 
+#### Implementing a Script
+
+The Script concept is materialized by an Interface, the *netgest.bo.xwc.framework.controllers.Script* which has a single method:
+
+```java
+public interface Script {
+
+	/**
+	 * Create the scene
+	 * 
+	 * @return A new scene to render
+	 */
+	public Scene buildScene();
+	
+}
+
+```
+
+You have two options when returning a Scene. You want to add a new scene to the story, or you don't. For instance, the SaveScript does not return a new scene (it does not navigate anywhere), as such you can return the special **Null Scene** like follows:
+
+```java
+	@Override
+	public Scene buildScene(){
+		//Code for the Script
+		return Scene.NULL_SCENE;
+	}
+```
 
 ## Existing Scripts
 
