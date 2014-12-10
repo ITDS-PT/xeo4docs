@@ -24,11 +24,13 @@ The ApplicationContainer is a component (registered as *xvw:applicationContainer
 </xvw:viewer>
 ```
 
-The viewer container represents a Story (see bellow)
+The application container represents a Story (see bellow).
 
 ## Story
 
-A Story is an ordered collection of Scenes, each scene represents a view the user sees and interacts with (materialized by a *.xvw file*). A Story represents the path a user as taken to reach a certain view.
+A Story is an ordered collection of Scenes, each scene represents a view the user sees and interacts with (materialized by a *.xvw file*). A Story contains the steps a user has taken to reach a certain view.
+
+Story management is done behind the scenes. You can know that whenever you first render a view that has the application container in it, it will create a new Story. That story will be maintained as long as the user does not load another page. The only "exception" to this is if you for instance execute an action with the "Ctrl/Command" modified key pressed, which will open a new tab with the result and create a new story for that purpose.
 
 #### Scene
 
@@ -41,7 +43,7 @@ Since a story represents a series of steps the users has taken to reach a certai
 
 ## Scripts
 
-A Script is essentially a series of steps that may return a new Scene (or special Empty Scene) to navigate to. This concept was added to encapsulate certain platform actions and to allow developers to create their own scripts. Several of the platform's built-in action were converted to scripts, including the following:
+A Script is essentially a series of steps that may return a new Scene (or the special Null Scene) to navigate to. This concept was added to encapsulate certain platform actions and to allow developers to create their own scripts. Several of the platform's built-in action were converted to scripts, including the following:
 - Saving an instance
 - Opening a lookup viewer
 - Editing an existing instance from a list or collection attribute
@@ -59,7 +61,7 @@ Events can also have an optional value and a tag associated. In the confirm exam
 
 Each bean that derives from the ApplicationBaseBean also gets an **init** event which is triggered after all parameters have been passed and just before the viewer is rendered to the user.
 
-## Component References/Bindings
+## Finding a Component : References/Bindings
 
 To make dealing with components easier, we introduced the concept of a component reference. If you create a bean with the following definition:
 
@@ -101,6 +103,7 @@ And the bean
 ## Bootstrap
 
 Not really a concept, but the XEO V4 visual layout is based on the popular [Bootstrap](http://www.getbootstrap.com) CSS framework. Which is one of the reasons why we get a more customizable layout.
+**It's important to note** that the Rows/Row/Cell components are now mapped to the [Bootstrap grid system](http://getbootstrap.com/css/#grid) (meaning you get only 12 columns to work with)
 
 
 
