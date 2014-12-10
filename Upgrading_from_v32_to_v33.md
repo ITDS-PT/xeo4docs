@@ -164,3 +164,21 @@ This can also be done in the boconfig.xml file (which makes the renderKit availa
 </renderKits>
 <!-- remaining boconfig -->
 ```
+
+## Eclipse
+
+Until the XEO Studio plugin is updated to support the new version you have to manually set somethings, namely the templates for the Scaffolding tool.
+
+For each project you want to use with XEO 3.3 you may want to:
+- Right Click the Project in Eclipse (Project Explorer)
+- Find the "XEO Studio" options section
+- Select the "Default Beans" option and replace the beans with the ones described in the previous section.
+
+EditBean     -> netgest.bo.xwc.xeo.controllers.beans.EditBean
+ListBean     -> netgest.bo.xwc.xeo.controllers.beans.ListBean
+LookupBean   -> netgest.bo.xwc.xeo.controllers.beans.LookupBean
+MainBean     -> netgest.bo.xwc.xeo.controllers.MainBean
+Main with Regions Bean -> netgest.bo.xwc.xeo.controllers.MainBean
+BaseBean     -> netgest.bo.xwc.framework.controllers.ApplicationBaseBean
+
+You also want to add the "transactionLess='true'" to the List and Main viewer templates.
