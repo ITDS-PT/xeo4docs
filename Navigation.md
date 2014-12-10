@@ -1,6 +1,6 @@
 # Navigation
 
-The navigation in XEO V3.3 is done through the Story/Scene paradigm as explained in the [New Concepts](New_Concepts) page. There are two ways to navigate to new scenes using the API
+The navigation in XEO V4is done through the Story/Scene paradigm as explained in the [New Concepts](New_Concepts) page. There are two ways to navigate to new scenes using the API
 - Adding a new scene to the story directly
 - Executing an existing script (there are some variants to this)
 

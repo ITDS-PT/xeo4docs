@@ -1,8 +1,8 @@
-# Concepts in XEO version 3.3
+# Concepts in XEO version 4
 
-This page introduces the new concepts creating in version 3.3 of XEO, and their purpose.
+This page introduces the new concepts creating in version 4 of XEO, and their purpose.
 
-The main goal behind version 3.3 was to create a new visual interface to make applications visualling more appealing but also to solve some issues with the previous version, such as:
+The main goal behind version 4 was to create a new visual interface to make applications visualling more appealing but also to solve some issues with the previous version, such as:
 - Navigation between viewers
 - Responding to events in the visual layer
 - Overriding the framework's defaults
@@ -68,7 +68,7 @@ To make dealing with components easier, we introduced the concept of a component
 ```java
 
 @ComponentReference(componentClass=GridPanel.class)
-public GridPanel grid;
+protected GridPanel grid;
 
 public void action(){
 	DataRecordConnector record = grid.getActiveRow();
@@ -77,7 +77,6 @@ public void action(){
 
 ```
 
-**Note : The "grid" variable must public.**
 
 The component reference is handled automatically by XEO. XEO also unbinds the reference when the request ends. You can also search the reference by id.
 

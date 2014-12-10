@@ -1,6 +1,6 @@
-# Upgrading from XEO v3.2 to v3.3
+# Upgrading from XEO v3.2 to v4
 
-There are some important concepts that have changed from version 3.2 to 3.3 and full backward-compatability is not possible. This document **is not to explain how to convert a project in XEO V3.2 to XEO V3.3**, but instead to show you what changes in the way you do things.
+There are some important concepts that have changed from version 3.2 to 4 and full backward-compatability is not possible. This document **is not to explain how to convert a project in XEO V3.2 to XEO V4**, but instead to show you what changes in the way you do things.
 
 ## Viewer definition
 XEO V3 Viewer definitions are mostly compatible with V4, with the following exceptions
@@ -109,7 +109,8 @@ The template/main viewer should have a xvw:form component envolving the entire c
 
 ## Beans (to be used in scenes inside the applicationContainer)
 
-Since version 3.3 brings so many changes, we decided to create a new set of beans for the various types of situations.
+Since version 4
+brings so many changes, we decided to create a new set of beans for the various types of situations.
 
 - netgest.bo.xwc.framework.controllers.ApplicationBaseBean (for any viewer)
 - netgest.bo.xwc.xeo.controllers.MainBean (for Main Viewers)
@@ -169,7 +170,7 @@ This can also be done in the boconfig.xml file (which makes the renderKit availa
 
 Until the XEO Studio plugin is updated to support the new version you have to manually set somethings, namely the templates for the Scaffolding tool.
 
-For each project you want to use with XEO 3.3 you may want to:
+For each project you want to use with XEO 4 you may want to:
 - Right Click the Project in Eclipse (Project Explorer)
 - Find the "XEO Studio" options section
 - Select the "Default Beans" option and replace the beans with the ones described in the previous section.
