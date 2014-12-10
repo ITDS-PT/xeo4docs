@@ -9,6 +9,7 @@ XEO V3 Viewer definitions are mostly compatible with V4, with the following exce
 - List viewers and Main viewers require an additional parameter in the xvw:viewer element, which is **transactionLess='true'**
 - The defaults beans are no longer the XEOBaseBean, XEOEditBean, XEOBaseList and XEOBaseLookupList (more on that in the beans section)
 - The Main viewer definition is not compatible with the new version (more on that bellow)
+- The faces-config.xml and web.xml files require a small change
 
 ### Main Viewer
 
@@ -117,3 +118,49 @@ Since version 3.3 brings so many changes, we decided to create a new set of bean
 - netgest.bo.xwc.xeo.controllers.beans.LookupBean (for Lookup viewers)
 
 This means that you will have to change XEO Studio's default beans in the project's properties menu to have the scaffolding utility generate correct viewer definitions.
+
+## FacesConfig.xml
+
+For the new version you need to make a slight change in the faces-config.xml, previous versions of XEO will have the following:
+
+```xml
+	<lifecycle>
+    <phase-listener>netgest.bo.xwc.framework.jsf.XUIPhaseListener</phase-listener>
+  </lifecycle>
+```
+
+You need to change it to the following (notice the additional phase-listener)
+
+```xml
+<lifecycle>
+    <phase-listener>netgest.bo.xwc.framework.jsf.XUIPhaseListener</phase-listener>
+    <phase-listener>netgest.bo.xwc.framework.jsf.ComponentReferenceBindingPhaseListener</phase-listener>
+  </lifecycle>
+
+```
+##Web.xml / boconfig.xml
+
+You also need to change the **renderKit**, which can be done in the web.xml like the following (you will need the to set the renderKit to **XEOSMART**:
+
+```xml
+<servlet>
+		<servlet-name>XWC Servlet</servlet-name>
+		<servlet-class>netgest.bo.xwc.framework.http.XUIServlet</servlet-class>
+		<!-- Other parameters -->
+		<init-param>
+			<param-name>renderKit</param-name>
+			<param-value>XEOSMART<param-value>
+		</init-param>
+		<!-- Other parameters -->
+	</servlet>
+
+```
+
+This can also be done in the boconfig.xml file (which makes the renderKit available to all web contexts in the application)
+
+```xml
+<!-- remaining boConfig -->
+<renderKits default="XEOSMART">
+</renderKits>
+<!-- remaining boconfig -->
+```
