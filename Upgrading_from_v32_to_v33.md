@@ -106,14 +106,14 @@ This allows to reuse the template across the project (for multiple main viewers)
 ####Important Note:
 The template/main viewer should have a xvw:form component envolving the entire content (it's required for things such as asking the user if he wants to loose content when changing scenes)
 
-## Beans
+## Beans (to be used in scenes inside the applicationContainer)
 
 Since version 3.3 brings so many changes, we decided to create a new set of beans for the various types of situations.
 
-- ApplicationBaseBean (for any viewer)
-- MainBean (for Main Viewers)
-- ListBean (for List viewers)
-- EditBean (for Edit viewers)
-- LookupBean (for Lookup viewers)
+- netgest.bo.xwc.framework.controllers.ApplicationBaseBean (for any viewer)
+- netgest.bo.xwc.xeo.controllers.MainBean (for Main Viewers)
+- netgest.bo.xwc.xeo.controllers.beans.ListBean (for List viewers)
+- netgest.bo.xwc.xeo.controllers.beans.EditBean (for Edit viewers)
+- netgest.bo.xwc.xeo.controllers.beans.LookupBean (for Lookup viewers)
 
 This means that you will have to change XEO Studio's default beans in the project's properties menu to have the scaffolding utility generate correct viewer definitions.
