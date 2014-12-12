@@ -41,6 +41,21 @@ A Scene is an abstraction that contains a pair of viewer and bean inside a Story
 Since a story represents a series of steps the users has taken to reach a certain point, that path can be displayed with by using the concept of a breadcrumb. With that goal, the *xvw:sceneCrumb* component was created. You just need to add it to your main viewer and it will display the path the user has taken up to the current point. The SceneCrumb also allows the user to return to a previous step in his path.
 
 
+
+## Scope
+
+Each Scene has what we call a **Scope**, which represents the set of instances that are visible to that Scene. By instances we refer to XEO Model instances. XEO Model instances in different scopes are not visible to each other. When you add a new scene in the same scope, the instances of the previous scene are visible to the next scene, if you create a new scope those instances will not be visible.
+
+When rendering a new scene (or executing a script) you can choose whether to do that in the same scope (thus sharing instances) or in a new scope). The following API will be available in any bean
+
+```java
+renderScene(Scene scene);
+renderSceneNewScope(Scene scene);
+
+executeScript(Script script);
+executeScriptNewScope(Script script);
+```
+
 ## Scripts
 
 A Script is essentially a series of steps that may return a new Scene (or the special Null Scene) to navigate to. This concept was added to encapsulate certain platform actions and to allow developers to create their own scripts. Several of the platform's built-in action were converted to scripts, including the following:
